@@ -1,0 +1,78 @@
+<template>
+  <div>
+    <el-row>
+        <el-col :span="6">
+        <el-input v-model="keyword" placeholder="请输入企业关键字"></el-input>
+        </el-col>
+        <el-col :span="6">
+        <el-select v-model="type" placeholder="请选择">
+            <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+            </el-option>
+        </el-select>
+        </el-col>
+        <el-col :span="6">
+        <el-button size="medium" v-on:click="company" v-bind:loading="is_loading">查询</el-button>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="18">
+            <el-input type="textarea" placeholder="查询结果" :rows="20" v-model="info"></el-input>
+        </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+const axios = require("axios");
+
+export default {
+  data() {
+    return {
+        keyword: "",
+        info: "",
+        is_loading: false,
+        options: [
+        {
+            value: "0",
+            label: "列表信息"
+        },
+        {
+            value: "1",
+            label: "部分信息"
+        },
+        {
+            value: "2",
+            label: "全部信息"
+        },
+        {
+            value: "3",
+            label: "网页爬虫"
+        }
+        ],
+        type: "3"
+    }
+  },
+  methods: {
+    company: function() {
+      this.is_loading = true
+      axios.get("http://company.yifanti.com/company?keyword=" + this.keyword + "&type=" + this.type)
+        .then(response => {
+          if (response.status == 200) {
+            this.info = JSON.stringify(response.data, null, 2);
+          }
+        });
+      this.is_loading = false
+    }
+  }
+};
+</script>
+
+<style>
+.el-row {
+    margin-bottom: 20px;
+}
+</style>
