@@ -20,34 +20,32 @@
       </router-link>
     </el-menu>
 </template>
-
-<style>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-  }
-  .el-menu-item {
-    background-color: #d3dce6;
-  }
-  .el-menu {
-      background-color: #d3dce6 !important;
-      height: 100%;
-  }
-</style>
-
 <script>
-  export default {
-    data() {
-      return {
-        isCollapse: true
-      };
+export default {
+  data() {
+    return {
+      isCollapse: true
+    }
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath)
     },
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+    handleClose(key, keyPath) {
+      console.log(key, keyPath)
     }
   }
+}
 </script>
+<style lang="scss" scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+}
+.el-menu-item {
+  background-color: #d3dce6;
+}
+.el-menu {
+  background-color: #d3dce6;
+  height: 100%;
+}
+</style>
