@@ -1,31 +1,26 @@
 <template>
-    <el-menu default-active="1" class="el-menu-vertical-demo" @dpen="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <router-link to="/company">
-        <el-menu-item index="1">
-            <i class="el-icon-search"></i>
-            <span slot="title">企业信息查询</span>
-        </el-menu-item>
-      </router-link>
-      <router-link to="/stringLength">
-        <el-menu-item index="2">
-            <i class="el-icon-document"></i>
-            <span slot="title">字符串长度计算</span>
-        </el-menu-item>
-      </router-link>
-      <router-link to="/base64Transform">
-        <el-menu-item index="3">
-            <i class="el-icon-setting"></i>
-            <span slot="title">图片Base64转换</span>
+    <el-menu :default-active="menuActive" class="el-menu-vertical-demo" @dpen="handleOpen" @close="handleClose" :collapse="isCollapse">
+      <router-link v-for="(item, index) in siderItem" :key="index" :to="`/${item.path}`">
+        <el-menu-item :index="item.meta.menu_key">
+            <i :class="item.icon"></i>
+            <span slot="title">{{item.name}}</span>
         </el-menu-item>
       </router-link>
     </el-menu>
 </template>
 <script>
+import { constantRouterMap } from '@/router/routers.js'
 export default {
   data() {
     return {
-      isCollapse: true
+      isCollapse: true,
+      siderItem: [],
+      menuActive: ''
     }
+  },
+  mounted() {
+    this.siderItem = constantRouterMap[0].children
+    this.menuActive = this.$route.meta.menu_key
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -34,7 +29,13 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath)
     }
-  }
+  },
+  watch: {
+    $route(value) {
+      console.log('------', value)
+      this.menuActive = value.meta.menu_key
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>
