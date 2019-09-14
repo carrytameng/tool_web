@@ -1,5 +1,15 @@
 <template>
-  <div class="base64Transform">
+  <div class="base64-transform">
+    <!-- <el-upload
+      class="upload-demo"
+      drag
+      :on-preview="handlePreview"
+      :auto-upload="false"
+      action="https://jsonplaceholder.typicode.com/posts/"
+      multiple>
+      <i class="el-icon-upload"></i>
+      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+    </el-upload> -->
     <upload @on-success="onsuccess"></upload>
     <div class="oper-area">
       <el-button type="primary" size="small" @click="clearBtn">清空</el-button>
@@ -45,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.base64Transform {
+.base64-transform {
   width: 80%;
   margin: 0px auto;
   .oper-area {
