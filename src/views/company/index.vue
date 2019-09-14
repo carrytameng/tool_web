@@ -58,7 +58,7 @@ export default {
       axios.get('http://company.yifanti.com/company?keyword=' + this.keyword + '&type=' + this.type)
         .then(response => {
           if (response.status === 200) {
-            this.info = JSON.stringify(response.data, null, 2)
+            this.info = JSON.stringify(response.data, null, 4)
           }
         })
       this.is_loading = false

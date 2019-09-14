@@ -35,5 +35,14 @@ export const constantRouterMap = [{
     meta: {
       menu_key: '4',
     }
-  }]
+  }, {
+    path: 'json-format',
+    component: _import('json-format/index'),
+    name: 'json格式化',
+    icon: 'el-icon-reading',
+    meta: {
+      menu_key: '5',
+    }
+  }
+  ]
 }]

@@ -33,7 +33,7 @@ export default {
       axios.get('http://court.yifanti.com/zhixing?name=' + this.name + '&cardNum=' + this.cardNum)
         .then(response => {
           if (response.status === 200) {
-            this.info = JSON.stringify(response.data, null, 2)
+            this.info = JSON.stringify(response.data, null, 4)
           }
         })
       this.is_loading = false
