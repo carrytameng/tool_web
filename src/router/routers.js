@@ -12,20 +12,28 @@ export const constantRouterMap = [{
       menu_key: '1',
     }
   }, {
-    path: 'stringLength',
-    component: _import('stringLength/index'),
-    name: '计算字符长度',
+    path: 'court-blacklist',
+    component: _import('court-blacklist/index'),
+    name: '法院被执行人',
     icon: 'el-icon-document',
     meta: {
       menu_key: '2',
     }
   }, {
-    path: 'base64Transform',
-    component: _import('base64Transform/index'),
+    path: 'base64-transform',
+    component: _import('base64-transform/index'),
     name: '图片转base64',
     icon: 'el-icon-setting',
     meta: {
       menu_key: '3',
+    }
+  }, {
+    path: 'base64-transform',
+    component: _import('base64-transform/index'),
+    name: '图片转base64',
+    icon: 'el-icon-setting',
+    meta: {
+      menu_key: '4',
     }
   }]
 }]

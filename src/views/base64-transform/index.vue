@@ -1,5 +1,5 @@
 <template>
-  <div class="base64Transform">
+  <div class="base64-transform">
     <el-upload
       class="upload-demo"
       drag
@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.base64Transform {
+.base64-transform {
   width: 80%;
   margin: 0px auto;
   .result-box {
