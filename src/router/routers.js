@@ -43,6 +43,5 @@ export const constantRouterMap = [{
     meta: {
       menu_key: '5',
     }
-  }
-  ]
+  }]
 }]
