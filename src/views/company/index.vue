@@ -15,7 +15,7 @@
         </el-select>
       </el-col>
       <el-col :span="6">
-        <el-button size="medium" v-on:click="company" v-bind:loading="is_loading" type="primary">查询</el-button>
+        <el-button size="medium" v-on:click="company" type="primary">查询</el-button>
       </el-col>
     </el-row>
     <el-input type="textarea" placeholder="查询结果" :rows="20" v-model="info" class="result-box"></el-input>
@@ -54,14 +54,21 @@ export default {
   },
   methods: {
     company: function() {
-      this.is_loading = true
+      const loading = this.$loading({
+        lock: true,
+        text: 'Loading',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
       axios.get('http://company.yifanti.com/company?keyword=' + this.keyword + '&type=' + this.type)
         .then(response => {
           if (response.status === 200) {
             this.info = JSON.stringify(response.data, null, 4)
           }
+          loading.close()
+        }).catch(() => {
+          loading.close()
         })
-      this.is_loading = false
     }
   }
 }
