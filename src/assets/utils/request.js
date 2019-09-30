@@ -3,7 +3,7 @@ import {
   Message
 } from 'element-ui'
 const server = axios.create({
-  baseURL: process.env.baseUrl
+  baseURL: process.env.VUE_APP_BASEURL
   // timeout: 30000
 })
 

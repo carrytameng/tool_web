@@ -16,8 +16,7 @@
 </template>
 
 <script>
-const axios = require('axios')
-
+import { courtblacklist } from '@/api/courtblacklistApi'
 export default {
   data() {
     return {
@@ -34,15 +33,17 @@ export default {
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'
       })
-      axios.get('http://court.yifanti.com/zhixing?name=' + this.name + '&cardNum=' + this.cardNum)
-        .then(response => {
-          if (response.status === 200) {
-            this.info = JSON.stringify(response.data, null, 4)
-          }
-          loading.close()
-        }).catch(() => {
-          loading.close()
-        })
+      courtblacklist('http://court.yifanti.com/zhixing', {
+        name: this.name,
+        cardNum: this.cardNum
+      }).then(res => {
+        if (res.status === 200) {
+          this.info = JSON.stringify(res.data, null, 4)
+        }
+        loading.close()
+      }).catch(() => {
+        loading.close()
+      })
     }
   }
 }

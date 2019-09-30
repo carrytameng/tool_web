@@ -1,16 +1,16 @@
-# tool_web
+# tool_web这是一款小工具集合
 
-## Project setup
+## 项目运行，先安装相关的包
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 在开发模式下启动
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包编译
 ```
 npm run build
 ```

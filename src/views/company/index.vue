@@ -23,8 +23,7 @@
 </template>
 
 <script>
-const axios = require('axios')
-
+import { compayInfor } from '@/api/compayApi'
 export default {
   data() {
     return {
@@ -60,15 +59,17 @@ export default {
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'
       })
-      axios.get('http://company.yifanti.com/company?keyword=' + this.keyword + '&type=' + this.type)
-        .then(response => {
-          if (response.status === 200) {
-            this.info = JSON.stringify(response.data, null, 4)
-          }
-          loading.close()
-        }).catch(() => {
-          loading.close()
-        })
+      compayInfor({
+        keyword: this.keyword,
+        type: this.type
+      }).then(res => {
+        if (res.status === 200) {
+          this.info = JSON.stringify(res.data, null, 4)
+        }
+        loading.close()
+      }).catch(() => {
+        loading.close()
+      })
     }
   }
 }
