@@ -12,8 +12,8 @@ export const constantRouterMap = [{
       menu_key: '1',
     }
   }, {
-    path: 'court-blacklist',
-    component: _import('court-blacklist/index'),
+    path: 'court',
+    component: _import('court/index'),
     name: '法院被执行人',
     icon: 'el-icon-user',
     meta: {
