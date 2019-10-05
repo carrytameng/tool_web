@@ -33,22 +33,18 @@ export default {
       options: [
         {
           value: '0',
-          label: '列表信息'
+          label: '网页爬虫'
         },
         {
           value: '1',
-          label: '部分信息'
+          label: '备选爬虫'
         },
         {
           value: '2',
-          label: '全部信息'
+          label: '简单信息'
         },
-        {
-          value: '3',
-          label: '网页爬虫'
-        }
       ],
-      type: '3'
+      type: '0'
     }
   },
   methods: {

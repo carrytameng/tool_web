@@ -8,6 +8,16 @@
         <el-input v-model="cardNum" placeholder="请输入身份证号码/组织机构代码"></el-input>
       </el-col>
       <el-col :span="6">
+        <el-select v-model="type" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+            </el-option>
+        </el-select>
+      </el-col>
+      <el-col :span="6">
         <el-button size="medium" v-on:click="query" type="primary">查询</el-button>
       </el-col>
     </el-row>
@@ -22,7 +32,18 @@ export default {
     return {
       name: '',
       cardNum: '',
-      info: ''
+      info: '',
+      options: [
+        {
+          value: 0,
+          label: '列表信息'
+        },
+        {
+          value: 1,
+          label: '详情信息'
+        }
+      ],
+      type: 0,
     }
   },
   methods: {
