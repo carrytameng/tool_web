@@ -15,7 +15,7 @@
         </el-select>
       </el-col>
       <el-col :span="6">
-        <el-button size="medium" v-on:click="company" type="primary">查询2</el-button>
+        <el-button size="medium" v-on:click="company" type="primary">查询</el-button>
       </el-col>
     </el-row>
     <el-input type="textarea" placeholder="查询结果" :rows="20" v-model="info" class="result-box"></el-input>
